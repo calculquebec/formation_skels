@@ -3,6 +3,7 @@ source /cvmfs/soft.computecanada.ca/config/profile/bash.sh
 if [[ $HOSTNAME == nodecpu* ]]; then
 	export PS1="~ $ "
 	cd .monordi
+	export HOME=/home/$USER/.monordi
 fi
 alias squeue="squeue $@ | grep -v spawner-jupyte"
 export SALLOC_PARTITION="compute-node"
