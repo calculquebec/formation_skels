@@ -5,6 +5,14 @@ if [[ $HOSTNAME == nodecpu* ]]; then
 	cd .monordi
 	export HOME=/home/$USER/.monordi
 fi
-alias squeue="squeue $@ | grep -v spawner-jupyte"
+
+squeue() {
+        /opt/software/slurm/bin/squeue $@ | grep --color=auto -v spawner-jupyte
+}
+
+sq() {
+        /opt/software/slurm/bin/squeue -u $USER $@ | grep --color=auto -v spawner-jupyte
+}
+
 export SALLOC_PARTITION="compute-node"
 
