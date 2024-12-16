@@ -1,7 +1,7 @@
 source /cvmfs/soft.computecanada.ca/config/profile/bash.sh
 
 if [[ $HOSTNAME == nodecpu* ]]; then
-	export PS1="~ $ "
+	export PS1="[monordi]$ "
 	cd .monordi
 	export HOME=/home/$USER/.monordi
 fi
