@@ -1,5 +1,16 @@
 source /cvmfs/soft.computecanada.ca/config/profile/bash.sh
 
+if ! [[ -z $JUPYTER_RUNTIME_DIR ]]; then
+	TERM=xterm-mono
+fi
+
+if [[ $TERM == xterm-mono ]]; then
+	unalias grep egrep fgrep xzegrep xzfgrep zegrep zfgrep zgrep
+	# unalias ls ll l.
+	# alias l.='ls -d .*'
+	# alias ll='ls -l'
+fi
+
 if [[ $HOSTNAME == nodecpu* ]]; then
 	export HOSTNAME=monordi
 	export HOME=/home/$USER/.monordi
@@ -16,4 +27,3 @@ sq() {
 }
 
 export SALLOC_PARTITION="compute-node"
-
