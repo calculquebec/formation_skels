@@ -1,5 +1,12 @@
 source /cvmfs/soft.computecanada.ca/config/profile/bash.sh
 
+if [[ $SLURM_JOB_NAME == spawner-jupyterhub ]]; then
+	export HOSTNAME=monordi
+	export HOME=/home/$USER/.monordi
+	export PS1="[\u@monordi \W]$ "
+	cd .monordi
+fi
+
 squeue() {
         /opt/software/slurm/bin/squeue $@ | grep --color=auto -v spawner-jupyte
 }
@@ -7,3 +14,5 @@ squeue() {
 sq() {
         /opt/software/slurm/bin/squeue -u $USER $@ | grep --color=auto -v spawner-jupyte
 }
+
+#export TERM=xterm-mono
