@@ -1,6 +1,6 @@
 source /cvmfs/soft.computecanada.ca/config/profile/bash.sh
 
-if [[ $HOSTNAME == cpupool* ]]; then
+if [[ $SLURM_JOB_NAME == spawner-jupyterhub ]]; then
 	export HOSTNAME=monordi
 	export HOME=/home/$USER/.monordi
 	export PS1="[\u@monordi \W]$ "
